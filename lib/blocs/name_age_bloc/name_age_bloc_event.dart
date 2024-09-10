@@ -5,7 +5,8 @@ sealed class NameAgeEvent {}
 
 class SubmitNameEvent extends NameAgeEvent {
   final String name;
-  SubmitNameEvent(this.name);
+  final String countryCode;
+  SubmitNameEvent(this.name, this.countryCode);
 }
 
 class ResetEvent extends NameAgeEvent {}

@@ -10,7 +10,7 @@ class NameAgeBloc extends Bloc<NameAgeEvent, NameAgeState> {
   NameAgeBloc() : super(InitialState()) {
     on<SubmitNameEvent>((event, emit) async {
       emit(LoadingState());
-      String result = await predictAge(event.name);
+      String result = await predictAge(event.name, event.countryCode);
       emit(ResultState(result));
     });
     on<ResetEvent>((event, emit) {
@@ -18,15 +18,21 @@ class NameAgeBloc extends Bloc<NameAgeEvent, NameAgeState> {
     });
   }
 
-  Future<String> predictAge(String name) async {
-    final response =
-        await http.get(Uri.parse('https://api.agify.io/?name=$name'));
+  Future<String> predictAge(String name, String countryCode) async {
+    final countryCodeString =
+        countryCode == '*' ? '' : "&country_id=$countryCode";
+    final response = await http
+        .get(Uri.parse('https://api.agify.io/?name=$name$countryCodeString'));
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      final age = data['age'];
-      return "People named $name are $age years old on average.";
+      int? age = data['age'];
+      if (age != null) {
+        return "People named $name are $age years old on average.";
+      } else {
+        return "Failed to predict age for the name $name.";
+      }
     } else {
-      throw Exception('Failed to predict age');
+      throw Exception('Failed to predict age.');
     }
   }
 }
