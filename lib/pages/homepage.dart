@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                             delayMs: 0,
                             child: Text(
                               state.result,
-                              style: Theme.of(context).textTheme.titleMedium,
+                              style: Theme.of(context).textTheme.headlineMedium,
                               textAlign: TextAlign.center,
                             ),
                           ),
