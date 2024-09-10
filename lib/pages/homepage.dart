@@ -12,39 +12,41 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Name Age Predictor'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const NameInputForm(),
-            const SizedBox(height: 20),
-            BlocBuilder<NameAgeBloc, NameAgeState>(
-              builder: (context, state) {
-                if (state is LoadingState) {
-                  return const CircularProgressIndicator();
-                } else if (state is ResultState) {
-                  return Column(
-                    children: [
-                      Text(
-                        state.result,
-                        style: Theme.of(context).textTheme.titleMedium,
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 10),
-                      ElevatedButton(
-                        onPressed: () {
-                          context.read<NameAgeBloc>().add(ResetEvent());
-                        },
-                        child: const Text('Try Again'),
-                      ),
-                    ],
-                  );
-                }
-                return const SizedBox.shrink();
-              },
-            ),
-          ],
+      body: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: BlocBuilder<NameAgeBloc, NameAgeState>(
+            builder: (context, state) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  if (state is InitialState) const NameInputForm(),
+                  if (state is InitialState) const SizedBox(height: 20),
+                  if (state is LoadingState)
+                    const CircularProgressIndicator()
+                  else if (state is ResultState)
+                    Column(
+                      children: [
+                        Text(
+                          state.result,
+                          style: Theme.of(context).textTheme.titleMedium,
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () {
+                            context.read<NameAgeBloc>().add(ResetEvent());
+                          },
+                          child: const Text('Try Again'),
+                        ),
+                      ],
+                    ),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
