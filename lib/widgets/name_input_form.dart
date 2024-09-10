@@ -31,7 +31,10 @@ class NameInputFormState extends State<NameInputForm> {
             delayMs: widget.delayMs,
             child: Row(
               children: [
-                const CountrySelector(),
+                const SizedBox(
+                  height: 56,
+                  child: CountrySelector(),
+                ),
                 const SizedBox(width: 10),
                 Expanded(
                   child: TextField(
