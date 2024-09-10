@@ -3,9 +3,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
-import 'package:meta/meta.dart';
-import 'package:neon_david_cursor/blocs/name_age/name_age_bloc.dart';
-import 'package:neon_david_cursor/models/country_data.dart';
+import 'package:neon_david_cursor/business_logic/blocs/name_age/name_age_bloc.dart';
+import 'package:neon_david_cursor/data/country_data.dart';
 
 class NameAgeBloc extends Bloc<NameAgeEvent, NameAgeState> {
   NameAgeBloc() : super(InitialState()) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:neon_david_cursor/models/country_data.dart';
-import '../../blocs/select_country/select_country_cubit.dart';
+import 'package:neon_david_cursor/business_logic/blocs/select_country/select_country_cubit.dart';
+import 'package:neon_david_cursor/data/country_data.dart';
 
 class CountrySelector extends StatelessWidget {
   const CountrySelector({super.key});

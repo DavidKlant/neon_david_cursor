@@ -8,8 +8,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:neon_david_cursor/blocs/name_age/name_age_bloc.dart';
-import 'package:neon_david_cursor/blocs/select_country/select_country_cubit.dart';
+import 'package:neon_david_cursor/business_logic/blocs/name_age/name_age_bloc.dart';
+import 'package:neon_david_cursor/business_logic/blocs/select_country/select_country_cubit.dart';
 
 import 'package:neon_david_cursor/pages/homepage.dart';
 

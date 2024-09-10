@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neon_david_cursor/models/color_data.dart';
+import 'package:neon_david_cursor/data/color_data.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefs {

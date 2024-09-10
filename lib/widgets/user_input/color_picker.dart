@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:neon_david_cursor/models/color_data.dart';
-import '../../blocs/chosen_primary_color/bloc/chosen_primary_color_bloc.dart';
+import 'package:neon_david_cursor/business_logic/blocs/chosen_primary_color/bloc/chosen_primary_color_bloc.dart';
+import 'package:neon_david_cursor/data/color_data.dart';
 
 class ColorPicker extends StatelessWidget {
   const ColorPicker({super.key});

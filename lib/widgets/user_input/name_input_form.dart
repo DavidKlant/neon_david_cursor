@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:neon_david_cursor/blocs/name_age/name_age_bloc.dart';
-import 'package:neon_david_cursor/blocs/select_country/select_country_cubit.dart';
+import 'package:neon_david_cursor/business_logic/blocs/name_age/name_age_bloc.dart';
+import 'package:neon_david_cursor/business_logic/blocs/select_country/select_country_cubit.dart';
 import 'package:neon_david_cursor/widgets/animations/fade_in_from_bottom.dart';
 import 'package:neon_david_cursor/widgets/user_input/country_selector.dart';
 import 'package:neon_david_cursor/widgets/buttons/cta_button.dart';
