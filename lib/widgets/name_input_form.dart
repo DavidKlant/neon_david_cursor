@@ -36,10 +36,26 @@ class NameInputFormState extends State<NameInputForm> {
                 Expanded(
                   child: TextField(
                     controller: _controller,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Enter a name',
-                      border: OutlineInputBorder(),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: const BorderSide(
+                            color: Colors.transparent, width: 0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide:
+                            const BorderSide(color: Colors.blue, width: 1),
+                      ),
+                      filled: true,
+                      fillColor: Colors.white,
+                      labelStyle: TextStyle(color: Colors.blue.shade700),
+                      prefixIcon:
+                          Icon(Icons.person, color: Colors.blue.shade400),
                     ),
+                    style: TextStyle(color: Colors.blue.shade900),
+                    cursorColor: Colors.blue,
                     textCapitalization: TextCapitalization.words,
                   ),
                 ),
