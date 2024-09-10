@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
+import 'package:neon_david_cursor/blocs/select_country_cubit/select_country_cubit.dart';
 
 part 'name_age_bloc_event.dart';
 part 'name_age_bloc_state.dart';
@@ -19,8 +20,9 @@ class NameAgeBloc extends Bloc<NameAgeEvent, NameAgeState> {
   }
 
   Future<String> predictAge(String name, String countryCode) async {
-    final countryCodeString =
-        countryCode == '*' ? '' : "&country_id=$countryCode";
+    final countryCodeString = countryCode == SelectCountryCubit.allCountryCode
+        ? ''
+        : "&country_id=$countryCode";
     final response = await http
         .get(Uri.parse('https://api.agify.io/?name=$name$countryCodeString'));
     if (response.statusCode == 200) {

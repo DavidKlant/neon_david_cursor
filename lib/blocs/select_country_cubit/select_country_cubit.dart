@@ -4,15 +4,17 @@ import 'package:meta/meta.dart';
 part 'select_country_cubit_state.dart';
 
 class SelectCountryCubit extends Cubit<SelectCountryCubitState> {
-  SelectCountryCubit() : super(const SelectCountryCubitState(countryCode: '*'));
+  SelectCountryCubit()
+      : super(SelectCountryCubitState(countryCode: allCountryCode));
 
   void selectCountry(String emoji) {
-    emit(
-        SelectCountryCubitState(countryCode: emojiToCountryCode[emoji] ?? '*'));
+    emit(SelectCountryCubitState(
+        countryCode: emojiToCountryCode[emoji] ?? allCountryCode));
   }
 
+  static String allCountryCode = 'ALL';
   static Map<String, String> emojiToCountryCode = {
-    "🌎": "*",
+    "🌎": allCountryCode,
     '🇺🇸': 'US',
     '🇮🇹': 'IT',
     '🇫🇷': 'FR',
