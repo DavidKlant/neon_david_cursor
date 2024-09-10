@@ -16,7 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Name Age Predictor',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blueAccent,
+          primary: Colors.blueAccent,
+        ),
         useMaterial3: true,
       ),
       home: MultiBlocProvider(

@@ -8,6 +8,8 @@ class CountrySelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+
     return BlocBuilder<SelectCountryCubit, SelectCountryCubitState>(
       builder: (context, state) {
         return Container(
@@ -29,9 +31,9 @@ class CountrySelector extends StatelessWidget {
                     context.read<SelectCountryCubit>().selectCountry(newValue);
                   }
                 },
-                icon: Icon(Icons.arrow_drop_down, color: Colors.blue.shade400),
-                style: TextStyle(color: Colors.blue.shade900),
-                dropdownColor: Colors.white,
+                icon: Icon(Icons.arrow_drop_down, color: colorScheme.primary),
+                style: TextStyle(color: colorScheme.onSurface),
+                dropdownColor: colorScheme.onPrimary,
                 items:
                     CountryData.emojiToCountryCodeAndName.entries.map((entry) {
                   return DropdownMenuItem<String>(
@@ -43,8 +45,7 @@ class CountrySelector extends StatelessWidget {
                             style: const TextStyle(fontSize: 18)), // Flag emoji
                         const SizedBox(width: 8),
                         Text(entry.value.countryCode,
-                            style: TextStyle(
-                                color: Colors.blue.shade700)), // Country code
+                            style: TextStyle(color: colorScheme.onSurface)),
                       ],
                     ),
                   );

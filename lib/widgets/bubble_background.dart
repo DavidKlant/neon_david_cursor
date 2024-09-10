@@ -9,6 +9,8 @@ class BubbleBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+
     return Stack(
       children: [
         Positioned(
@@ -20,8 +22,8 @@ class BubbleBackground extends StatelessWidget {
               child: Container(
                   height: MediaQuery.of(context).size.width * 1.25,
                   width: MediaQuery.of(context).size.width * 1.25,
-                  decoration: const BoxDecoration(
-                    color: Colors.blueAccent,
+                  decoration: BoxDecoration(
+                    color: colorScheme.primary,
                     shape: BoxShape.circle,
                   )),
             ),
