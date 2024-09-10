@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:neon_david_cursor/blocs/name_age_bloc/name_age_bloc_bloc.dart';
 import 'package:neon_david_cursor/blocs/select_country_cubit/select_country_cubit.dart';
 import 'package:neon_david_cursor/widgets/animations/fade_in_from_bottom.dart';
-import 'package:neon_david_cursor/widgets/country_selector.dart';
-import 'package:neon_david_cursor/widgets/cta_button.dart';
+import 'package:neon_david_cursor/widgets/user_input/country_selector.dart';
+import 'package:neon_david_cursor/widgets/buttons/cta_button.dart';
 
 class NameInputForm extends StatefulWidget {
   final int delayMs;
