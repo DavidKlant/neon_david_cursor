@@ -11,7 +11,8 @@ class NameAgeBloc extends Bloc<NameAgeEvent, NameAgeState> {
   NameAgeBloc() : super(InitialState()) {
     on<SubmitNameEvent>((event, emit) async {
       emit(LoadingState());
-      String result = await predictAge(event.name, event.countryCode);
+      String result =
+          await predictAge(event.name, event.countryCode, event.countryName);
       emit(ResultState(result));
     });
     on<ResetEvent>((event, emit) {
@@ -19,7 +20,8 @@ class NameAgeBloc extends Bloc<NameAgeEvent, NameAgeState> {
     });
   }
 
-  Future<String> predictAge(String name, String countryCode) async {
+  Future<String> predictAge(
+      String name, String countryCode, String countryName) async {
     final countryCodeString = countryCode == SelectCountryCubit.allCountryCode
         ? ''
         : "&country_id=$countryCode";
@@ -29,7 +31,11 @@ class NameAgeBloc extends Bloc<NameAgeEvent, NameAgeState> {
       final data = jsonDecode(response.body);
       int? age = data['age'];
       if (age != null) {
-        return "People named $name are $age years old on average.";
+        String inCountryString =
+            countryCode == SelectCountryCubit.allCountryCode
+                ? ''
+                : " in $countryName";
+        return "People named $name$inCountryString are $age years old on average.";
       } else {
         return "Failed to predict age for the name $name.";
       }

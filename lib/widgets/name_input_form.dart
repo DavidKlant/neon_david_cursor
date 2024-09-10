@@ -47,9 +47,11 @@ class NameInputFormState extends State<NameInputForm> {
               if (name.isNotEmpty) {
                 final countryCode =
                     context.read<SelectCountryCubit>().state.countryCode;
+                final countryName =
+                    context.read<SelectCountryCubit>().state.countryName;
                 context
                     .read<NameAgeBloc>()
-                    .add(SubmitNameEvent(name, countryCode));
+                    .add(SubmitNameEvent(name, countryCode, countryName));
               }
             },
             child: const Text('Send'),

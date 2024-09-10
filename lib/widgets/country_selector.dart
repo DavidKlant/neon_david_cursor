@@ -10,22 +10,24 @@ class CountrySelector extends StatelessWidget {
     return BlocBuilder<SelectCountryCubit, SelectCountryCubitState>(
       builder: (context, state) {
         return DropdownButton<String>(
-          value: SelectCountryCubit.emojiToCountryCode.entries
-              .firstWhere((entry) => entry.value == state.countryCode)
+          value: SelectCountryCubit.emojiToCountryCodeAndName.entries
+              .firstWhere(
+                  (entry) => entry.value.countryCode == state.countryCode)
               .key,
           onChanged: (String? newValue) {
             if (newValue != null) {
               context.read<SelectCountryCubit>().selectCountry(newValue);
             }
           },
-          items: SelectCountryCubit.emojiToCountryCode.entries.map((entry) {
+          items:
+              SelectCountryCubit.emojiToCountryCodeAndName.entries.map((entry) {
             return DropdownMenuItem<String>(
               value: entry.key,
               child: Row(
                 children: [
                   Text(entry.key), // Flag emoji
                   const SizedBox(width: 8),
-                  Text(entry.value), // Country code
+                  Text(entry.value.countryCode), // Country code
                 ],
               ),
             );
