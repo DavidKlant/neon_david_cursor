@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_david_cursor/models/country_data.dart';
 
-part 'select_country_cubit_state.dart';
+part 'select_country_state.dart';
 
 class SelectCountryCubit extends Cubit<SelectCountryCubitState> {
   SelectCountryCubit()

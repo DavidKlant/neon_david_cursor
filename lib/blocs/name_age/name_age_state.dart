@@ -1,4 +1,4 @@
-part of 'name_age_bloc_bloc.dart';
+part of 'name_age_bloc.dart';
 
 // States
 @immutable
