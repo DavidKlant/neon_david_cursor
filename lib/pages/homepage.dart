@@ -5,6 +5,7 @@ import 'package:neon_david_cursor/widgets/animations/fade_in_from_bottom.dart';
 import 'package:neon_david_cursor/widgets/bubble_background.dart';
 import 'package:neon_david_cursor/widgets/buttons/cta_button.dart';
 import 'package:neon_david_cursor/widgets/markdown_text.dart';
+import 'package:neon_david_cursor/widgets/user_input/color_picker.dart';
 import 'package:neon_david_cursor/widgets/user_input/name_input_form.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,6 +16,12 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Name Age Predictor'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: ColorPicker(),
+          ),
+        ],
       ),
       body: BubbleBackground(
         child: SizedBox(
