@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:neon_david_cursor/blocs/name_age_bloc/name_age_bloc_bloc.dart';
+import 'package:neon_david_cursor/widgets/animations/fade_in_from_bottom.dart';
 import 'package:neon_david_cursor/widgets/name_input_form.dart';
 
 class HomePage extends StatelessWidget {
@@ -29,17 +30,23 @@ class HomePage extends StatelessWidget {
                   else if (state is ResultState)
                     Column(
                       children: [
-                        Text(
-                          state.result,
-                          style: Theme.of(context).textTheme.titleMedium,
-                          textAlign: TextAlign.center,
+                        FadeInFromBottom(
+                          delayMs: 0,
+                          child: Text(
+                            state.result,
+                            style: Theme.of(context).textTheme.titleMedium,
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                         const SizedBox(height: 10),
-                        ElevatedButton(
-                          onPressed: () {
-                            context.read<NameAgeBloc>().add(ResetEvent());
-                          },
-                          child: const Text('Try Again'),
+                        FadeInFromBottom(
+                          delayMs: 500,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              context.read<NameAgeBloc>().add(ResetEvent());
+                            },
+                            child: const Text('Try Again'),
+                          ),
                         ),
                       ],
                     ),
