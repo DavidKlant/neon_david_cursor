@@ -3,9 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:neon_david_cursor/blocs/name_age/name_age_bloc.dart';
 import 'package:neon_david_cursor/blocs/select_country/select_country_cubit.dart';
 import 'package:neon_david_cursor/blocs/chosen_primary_color/bloc/chosen_primary_color_bloc.dart';
+import 'package:neon_david_cursor/other_business_logic/shared_prefs.dart';
 import 'package:neon_david_cursor/pages/homepage.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPrefs.init();
   runApp(const MyApp());
 }
 

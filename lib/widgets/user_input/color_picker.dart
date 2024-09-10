@@ -22,7 +22,9 @@ class ColorPicker extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: DropdownButtonHideUnderline(
               child: DropdownButton<Color>(
-                value: state.color,
+                value: ColorData.colors.contains(state.color)
+                    ? state.color
+                    : ColorData.defaultColor,
                 onChanged: (Color? newValue) {
                   if (newValue != null) {
                     context
