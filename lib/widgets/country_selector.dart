@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:neon_david_cursor/models/country_data.dart';
 import '../blocs/select_country_cubit/select_country_cubit.dart';
 
 class CountrySelector extends StatelessWidget {
@@ -10,7 +11,7 @@ class CountrySelector extends StatelessWidget {
     return BlocBuilder<SelectCountryCubit, SelectCountryCubitState>(
       builder: (context, state) {
         return DropdownButton<String>(
-          value: SelectCountryCubit.emojiToCountryCodeAndName.entries
+          value: CountryData.emojiToCountryCodeAndName.entries
               .firstWhere(
                   (entry) => entry.value.countryCode == state.countryCode)
               .key,
@@ -19,8 +20,7 @@ class CountrySelector extends StatelessWidget {
               context.read<SelectCountryCubit>().selectCountry(newValue);
             }
           },
-          items:
-              SelectCountryCubit.emojiToCountryCodeAndName.entries.map((entry) {
+          items: CountryData.emojiToCountryCodeAndName.entries.map((entry) {
             return DropdownMenuItem<String>(
               value: entry.key,
               child: Row(
