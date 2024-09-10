@@ -28,6 +28,7 @@ class NameInputFormState extends State<NameInputForm> {
               labelText: 'Enter a name',
               border: OutlineInputBorder(),
             ),
+            textCapitalization: TextCapitalization.words,
           ),
           const SizedBox(height: 10),
           ElevatedButton(

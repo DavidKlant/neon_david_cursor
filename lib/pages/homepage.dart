@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            NameInputForm(),
+            const NameInputForm(),
             const SizedBox(height: 20),
             BlocBuilder<NameAgeBloc, NameAgeState>(
               builder: (context, state) {
