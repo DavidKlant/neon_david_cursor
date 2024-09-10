@@ -39,11 +39,11 @@ class NameAgeBloc extends Bloc<NameAgeEvent, NameAgeState> {
           // add text telling user the country they selected. This is an empty string if ALL(worldwide) is selected.
           String inCountryString = countryCode == CountryData.allCountryCode
               ? ''
-              : " in $countryName";
-          return "People named $name$inCountryString are $age years old on average.";
+              : " in <b>$countryName</b>";
+          return "<b>$name</b>$inCountryString is <b>$age</b> years old.";
         } else {
           // if API returns null, tell user this name can not be predicted.
-          return "Failed to predict age for the name $name.";
+          return "Failed to predict age for the name <b>$name</b>.";
         }
       } else {
         return 'Failed to predict age.';
