@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:neon_david_cursor/blocs/name_age_bloc/name_age_bloc_bloc.dart';
 import 'package:neon_david_cursor/widgets/animations/fade_in_from_bottom.dart';
 import 'package:neon_david_cursor/widgets/bubble_background.dart';
+import 'package:neon_david_cursor/widgets/cta_button.dart';
 import 'package:neon_david_cursor/widgets/name_input_form.dart';
 
 class HomePage extends StatelessWidget {
@@ -42,14 +43,15 @@ class HomePage extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                           ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 24),
                           FadeInFromBottom(
                             delayMs: 500,
-                            child: ElevatedButton(
+                            child: CTAButton(
                               onPressed: () {
                                 context.read<NameAgeBloc>().add(ResetEvent());
                               },
-                              child: const Text('Try Again'),
+                              text: 'Try Again',
+                              icon: Icons.refresh,
                             ),
                           ),
                         ],

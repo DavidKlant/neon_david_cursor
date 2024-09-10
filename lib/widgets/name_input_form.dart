@@ -4,6 +4,7 @@ import 'package:neon_david_cursor/blocs/name_age_bloc/name_age_bloc_bloc.dart';
 import 'package:neon_david_cursor/blocs/select_country_cubit/select_country_cubit.dart';
 import 'package:neon_david_cursor/widgets/animations/fade_in_from_bottom.dart';
 import 'package:neon_david_cursor/widgets/country_selector.dart';
+import 'package:neon_david_cursor/widgets/cta_button.dart';
 
 class NameInputForm extends StatefulWidget {
   final int delayMs;
@@ -65,25 +66,24 @@ class NameInputFormState extends State<NameInputForm> {
               ],
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 24),
           FadeInFromBottom(
-            delayMs: widget.delayMs + 500,
-            child: ElevatedButton(
-              onPressed: () {
-                final name = _controller.text.trim();
-                if (name.isNotEmpty) {
-                  final countryCode =
-                      context.read<SelectCountryCubit>().state.countryCode;
-                  final countryName =
-                      context.read<SelectCountryCubit>().state.countryName;
-                  context
-                      .read<NameAgeBloc>()
-                      .add(SubmitNameEvent(name, countryCode, countryName));
-                }
-              },
-              child: const Text('Send'),
-            ),
-          ),
+              delayMs: widget.delayMs + 500,
+              child: CTAButton(
+                  text: 'Send',
+                  icon: Icons.send,
+                  onPressed: () {
+                    final name = _controller.text.trim();
+                    if (name.isNotEmpty) {
+                      final countryCode =
+                          context.read<SelectCountryCubit>().state.countryCode;
+                      final countryName =
+                          context.read<SelectCountryCubit>().state.countryName;
+                      context
+                          .read<NameAgeBloc>()
+                          .add(SubmitNameEvent(name, countryCode, countryName));
+                    }
+                  })),
         ],
       ),
     );
