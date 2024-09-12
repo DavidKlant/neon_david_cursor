@@ -8,8 +8,7 @@ class MarkdownText extends StatelessWidget {
   final int? maxLines;
 
   const MarkdownText(this.text,
-      {this.style, this.textAlign = TextAlign.left, this.maxLines, Key? key})
-      : super(key: key);
+      {this.style, this.textAlign = TextAlign.left, this.maxLines, super.key});
 
   @override
   Widget build(BuildContext context) {

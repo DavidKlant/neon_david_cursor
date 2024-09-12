@@ -19,7 +19,6 @@ class SharedPrefs {
   static Color getColor() {
     String? colorHex = _sharedPrefs?.getString(colorKey);
     if (colorHex != null) {
-      print('colorHex: $colorHex');
       return Color(int.parse(colorHex, radix: 16));
     }
 
