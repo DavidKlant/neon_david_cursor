@@ -21,7 +21,6 @@ class NameInputFormState extends State<NameInputForm> {
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final primaryColor = colorScheme.primary;
 
     return BlocListener<NameAgeBloc, NameAgeState>(
       listener: (context, state) {
@@ -52,15 +51,17 @@ class NameInputFormState extends State<NameInputForm> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(color: primaryColor, width: 1),
+                        borderSide:
+                            BorderSide(color: colorScheme.tertiary, width: 1),
                       ),
                       filled: true,
                       fillColor: Colors.white,
-                      labelStyle: TextStyle(color: primaryColor),
-                      prefixIcon: Icon(Icons.person, color: primaryColor),
+                      labelStyle: TextStyle(color: colorScheme.onSurface),
+                      prefixIcon:
+                          Icon(Icons.person, color: colorScheme.tertiary),
                     ),
                     style: TextStyle(color: colorScheme.onSurface),
-                    cursorColor: primaryColor,
+                    cursorColor: colorScheme.tertiary,
                     textCapitalization: TextCapitalization.words,
                   ),
                 ),

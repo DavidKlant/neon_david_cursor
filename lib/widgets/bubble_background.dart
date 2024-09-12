@@ -23,7 +23,7 @@ class BubbleBackground extends StatelessWidget {
                   height: MediaQuery.of(context).size.width * 1.25,
                   width: MediaQuery.of(context).size.width * 1.25,
                   decoration: BoxDecoration(
-                    color: colorScheme.primary,
+                    color: colorScheme.tertiary,
                     shape: BoxShape.circle,
                   )),
             ),

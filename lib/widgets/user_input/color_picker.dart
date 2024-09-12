@@ -32,7 +32,6 @@ class ColorPicker extends StatelessWidget {
                         .add(ChooseColor(color: newValue));
                   }
                 },
-                icon: Icon(Icons.arrow_drop_down, color: colorScheme.primary),
                 style: TextStyle(color: colorScheme.onSurface),
                 dropdownColor: colorScheme.onPrimary,
                 items: ColorData.colors.map((Color color) {

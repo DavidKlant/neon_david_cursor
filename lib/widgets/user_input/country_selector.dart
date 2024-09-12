@@ -31,7 +31,6 @@ class CountrySelector extends StatelessWidget {
                     context.read<SelectCountryCubit>().selectCountry(newValue);
                   }
                 },
-                icon: Icon(Icons.arrow_drop_down, color: colorScheme.primary),
                 style: TextStyle(color: colorScheme.onSurface),
                 dropdownColor: colorScheme.onPrimary,
                 items:
